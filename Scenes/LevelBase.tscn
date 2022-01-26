@@ -154,8 +154,8 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )
 
-[node name="PlayerCamera" type="Camera2D" parent="Player"]
-position = Vector2( 409, 26 )
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
 current = true
 process_mode = 0
 limit_smoothed = true

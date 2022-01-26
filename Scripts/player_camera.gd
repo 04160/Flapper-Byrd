@@ -1,7 +1,6 @@
 extends Camera2D
 
-
+onready var player = get_node("/root/LevelBase/Player")
 
 func _process(delta):
-	pass
-	#global_position = posY
+	position.x = player.position.x + 1024/2 - 200
