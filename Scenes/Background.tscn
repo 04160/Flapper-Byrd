@@ -1,0 +1,173 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Background/background2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Background/cloud7.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Background/cloud5.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Background/background1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Background/cloud4.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Background/cloud1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Background/cloud3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Background/cloud2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Background/cloud6.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Background/background3.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Background/cloud8.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/kill_zone.gd" type="Script" id=12]
+
+[sub_resource type="LineShape2D" id=1]
+normal = Vector2( 0, 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="Sky"]
+margin_right = 1024.0
+margin_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MountainsFarthest" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="MountainsFarthest"]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MountainsClosest" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="MountainsClosest"]
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clouds" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Cloud1" type="Sprite" parent="Clouds"]
+position = Vector2( 801, 566 )
+texture = ExtResource( 6 )
+
+[node name="Cloud2" type="Sprite" parent="Clouds"]
+position = Vector2( 288, 37 )
+texture = ExtResource( 8 )
+
+[node name="Cloud3" type="Sprite" parent="Clouds"]
+position = Vector2( 669, 531 )
+z_index = 1
+texture = ExtResource( 7 )
+
+[node name="Cloud4" type="Sprite" parent="Clouds"]
+position = Vector2( 168, 20 )
+texture = ExtResource( 5 )
+
+[node name="Cloud5" type="Sprite" parent="Clouds"]
+position = Vector2( 171, 577 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="Cloud6" type="Sprite" parent="Clouds"]
+position = Vector2( 692, 30 )
+texture = ExtResource( 9 )
+
+[node name="Cloud7" type="Sprite" parent="Clouds"]
+position = Vector2( -547, 416 )
+texture = ExtResource( 2 )
+offset = Vector2( 658, 187 )
+
+[node name="Cloud8" type="Sprite" parent="Clouds"]
+position = Vector2( 372, 576 )
+texture = ExtResource( 11 )
+
+[node name="Cloud9" type="Sprite" parent="Clouds"]
+position = Vector2( 138, -203 )
+texture = ExtResource( 2 )
+offset = Vector2( 658, 187 )
+
+[node name="Cloud10" type="Sprite" parent="Clouds"]
+position = Vector2( 738, 543 )
+texture = ExtResource( 8 )
+
+[node name="Cloud11" type="Sprite" parent="Clouds"]
+position = Vector2( 386, 600 )
+texture = ExtResource( 11 )
+
+[node name="Cloud12" type="Sprite" parent="Clouds"]
+position = Vector2( 522, -12 )
+texture = ExtResource( 8 )
+
+[node name="Cloud13" type="Sprite" parent="Clouds"]
+position = Vector2( 1020, -3 )
+texture = ExtResource( 11 )
+
+[node name="Cloud14" type="Sprite" parent="Clouds"]
+position = Vector2( 14, -1 )
+texture = ExtResource( 9 )
+
+[node name="Cloud15" type="Sprite" parent="Clouds"]
+position = Vector2( 319, 425 )
+texture = ExtResource( 2 )
+offset = Vector2( 658, 187 )
+
+[node name="Cloud16" type="Sprite" parent="Clouds"]
+position = Vector2( 1124, 616 )
+texture = ExtResource( 8 )
+
+[node name="Cloud17" type="Sprite" parent="Clouds"]
+position = Vector2( 537, 608 )
+texture = ExtResource( 8 )
+
+[node name="KillZone" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="KillZoneTop" type="Area2D" parent="KillZone"]
+gravity_distance_scale = 0.095
+gravity = 0.0
+linear_damp = 0.0
+script = ExtResource( 12 )
+
+[node name="KillZoneShape" type="CollisionShape2D" parent="KillZone/KillZoneTop"]
+position = Vector2( 512, -25 )
+scale = Vector2( 5.12, 0.1 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="KillZoneBottom" type="Area2D" parent="KillZone"]
+gravity_distance_scale = 0.095
+gravity = 0.0
+linear_damp = 0.0
+script = ExtResource( 12 )
+
+[node name="KillZoneShape" type="CollisionShape2D" parent="KillZone/KillZoneBottom"]
+position = Vector2( 512, 625 )
+rotation = 3.14159
+scale = Vector2( 5.12, 0.1 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="KillZone/KillZoneTop" to="KillZone/KillZoneTop" method="_on_KillZoneTop_body_entered"]
+[connection signal="body_entered" from="KillZone/KillZoneBottom" to="KillZone/KillZoneTop" method="_on_KillZoneBottom_body_entered"]
